@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block title %}创建新话题{% endblock %}
+
+{% block breadcrumb %}
+
+    <li class="breadcrumb-item"><a href="{% url 'home' %}">Boards</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'board_topics' board.pk %}">{{ board.name }}</a></li>
+    <li class="breadcrumb-item active">新话题</li>
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {% include 'includes/form.html' %}
+        <button type="submit" class="btn btn-success">提交</button>
+    </form>
+{% endblock %}
