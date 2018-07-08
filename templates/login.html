@@ -19,6 +19,7 @@
                         <h3 class="card-title">登录</h3>
                         <form method="post" novalidate>
                             {% csrf_token %}
+                            <input type="hidden" name="next" value="{{ next }}">
                             {% include 'includes/form.html' %}
                             <button type="submit" class="btn btn-primary btn-block">登录</button>
                         </form>
@@ -29,7 +30,7 @@
                 </div>
                 <div class="text-center py-2">
                     <small>
-                        <a href="#" class="text-muted">忘记密码?</a>
+                        <a href="{% url 'password_reset' %}" class="text-muted">忘记密码?</a>
                     </small>
                 </div>
             </div>
